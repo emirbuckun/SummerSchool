@@ -7,6 +7,7 @@ namespace SummerSchool.DataAccess.MsSql.DbContext
     public class SummerSchoolDbContext : EF.DbContext
     {
         public DbSet<Book> Books { get; set; }
+        public DbSet<Genre> Genres { get; set; }
         public SummerSchoolDbContext(DbContextOptions options) : base(options) { }
     }
 }
