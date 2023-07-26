@@ -1,7 +1,4 @@
-﻿using System.Diagnostics;
-using System.Linq;
-
-namespace SummerSchool.Api.Middlewares
+﻿namespace SummerSchool.Api.Middlewares
 {
     public class TraceMiddleware
     {

@@ -1,5 +1,4 @@
-﻿using ef = Microsoft.EntityFrameworkCore;
-using SummerSchool.Entity.Entity;
+﻿using SummerSchool.Entity.Entity;
 using SummerSchool.DataAccess.MsSql.DbContext;
 using Microsoft.EntityFrameworkCore;
 
@@ -48,7 +47,6 @@ namespace SummerSchool.DataAccess.MsSql.Repository
                 _context.SaveChanges();
                 return true;
             }
-
             return false;
         }
     }

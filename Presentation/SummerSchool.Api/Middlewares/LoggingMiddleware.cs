@@ -1,9 +1,4 @@
-﻿using Azure.Core;
-using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Logging;
-using System.Text;
-
-namespace SummerSchool.Api.Middlewares
+﻿namespace SummerSchool.Api.Middlewares
 {
     public class LoggingMiddleware
     {

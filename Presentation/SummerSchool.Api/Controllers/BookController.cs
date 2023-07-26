@@ -9,11 +9,9 @@ namespace SummerSchool.Api.Controllers
     public class BookController : ControllerBase
     {
         private readonly BookHandler _handler;
-        private readonly ILogger<BookController> _logger;
-        public BookController(ILogger<BookController> logger, BookHandler handler)
+        public BookController(BookHandler handler)
         {
             _handler = handler;
-            _logger = logger;
         }
 
         [HttpGet]
@@ -34,10 +32,8 @@ namespace SummerSchool.Api.Controllers
         {
             var result = _handler.AddBook(request);
 
-            if (!result)
-                return NotFound();
-            else
-                return Ok();
+            if (!result) return NotFound();
+            else return Ok();
         }
 
         [HttpPut]
@@ -45,10 +41,8 @@ namespace SummerSchool.Api.Controllers
         {
             var result = _handler.UpdateBook(request);
 
-            if (!result)
-                return NotFound();
-            else
-                return Ok();
+            if (!result) return NotFound();
+            else return Ok();
         }
 
         [HttpDelete]
@@ -56,10 +50,8 @@ namespace SummerSchool.Api.Controllers
         {
             var result = _handler.DeleteBook(id);
 
-            if (!result)
-                return NotFound();
-            else
-                return Ok();
+            if (!result) return NotFound();
+            else return Ok();
         }
     }
 }

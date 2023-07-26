@@ -7,19 +7,18 @@ namespace SummerSchool.App.Handler
     {
         private readonly IBookRepository _bookRepository;
 
-        public BookHandler(IBookRepository bookRepository) 
+        public BookHandler(IBookRepository bookRepository)
         {
             _bookRepository = bookRepository;
         }
 
-
-        public List<Book> GetBooks() 
+        public List<Book>? GetBooks()
         {
             Thread.Sleep(1242);
-            return _bookRepository.GetAll(); 
+            return _bookRepository.GetAll();
         }
 
-        public Book? GetBook(int id) 
+        public Book? GetBook(int id)
         {
             return _bookRepository.GetById(id);
         }
@@ -35,15 +34,9 @@ namespace SummerSchool.App.Handler
                     _bookRepository.Add(book);
                     return true;
                 }
-                else
-                {
-                    return false;
-                }
-            }
-            else
-            {
                 return false;
             }
+            return false;
         }
 
         public bool UpdateBook(Book book)
@@ -57,18 +50,12 @@ namespace SummerSchool.App.Handler
                     _bookRepository.Update(book);
                     return true;
                 }
-                else
-                {
-                    return false;
-                }
-            }
-            else
-            {
                 return false;
             }
+            return false;
         }
 
-        public bool DeleteBook(int id) 
+        public bool DeleteBook(int id)
         {
             var existingBook = _bookRepository.GetById(id);
 
@@ -77,22 +64,14 @@ namespace SummerSchool.App.Handler
                 _bookRepository.Delete(id);
                 return true;
             }
-            else
-            {
-                return false;
-            }
+            return false;
         }
 
-        private bool IsValid(Book book)
+        private static bool IsValid(Book book)
         {
             if (string.IsNullOrEmpty(book.Title))
-            {
                 return false;
-            }
-            else
-            {
-                return true;
-            }
+            return true;
         }
     }
 }

@@ -15,14 +15,14 @@ namespace SummerSchool.Api.Middlewares
 
         public async Task Invoke(HttpContext httpContext)
         {
-            Stopwatch sw = new Stopwatch();
+            Stopwatch sw = new();
             sw.Start();
 
             await _next(httpContext);
 
             sw.Stop();
-            _logger.LogInformation("CorrId with {corrId} request elapsed time is {elapsed}", 
-                httpContext.Request.Headers[TraceMiddleware.CORR_ID], 
+            _logger.LogInformation("CorrId with {corrId} request elapsed time is {elapsed}",
+                httpContext.Request.Headers[TraceMiddleware.CORR_ID],
                 sw.Elapsed);
         }
     }

@@ -5,13 +5,11 @@ namespace SummerSchool.DataAccess.InMemoryList.Repository
 {
     public class BookRepository : GenericRepository<Book>, IBookRepository
     {
-        public BookRepository()
-        {
-        }
+        public BookRepository() { }
 
         public Book? GetByTitle(string title)
         {
-            return GetAll()?.Where(x=> x.Title == title).SingleOrDefault();
+            return GetAll()?.Where(x => x.Title == title).SingleOrDefault();
         }
 
         public override List<Book> Seed()

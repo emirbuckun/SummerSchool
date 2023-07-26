@@ -4,14 +4,14 @@ namespace SummerSchool.DataAccess.InMemoryList.Repository
 {
     public abstract class GenericRepository<T> where T : BaseEntity
     {
-        protected static List<T> _list;
+        private static List<T> _list;
 
         public GenericRepository()
         {
             _list = Seed();
         }
 
-        public List<T> GetAll()
+        public List<T>? GetAll()
         {
             return _list;
         }
@@ -45,10 +45,7 @@ namespace SummerSchool.DataAccess.InMemoryList.Repository
                 _list?.Remove(book);
                 return true;
             }
-            else
-            {
-                return false;
-            }
+            return false;
         }
 
         public abstract List<T> Seed();
