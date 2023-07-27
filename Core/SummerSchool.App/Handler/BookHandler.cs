@@ -14,7 +14,6 @@ namespace SummerSchool.App.Handler
 
         public List<Book>? GetBooks()
         {
-            Thread.Sleep(1242);
             return _bookRepository.GetAll();
         }
 
